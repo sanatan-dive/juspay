@@ -80,7 +80,7 @@ export default function LeftSidebar() {
               <span>Default</span>
             </div>
           </li>
-          <li className="flex items-center gap-1 px-3 py-1 text-[#1C1C1C] dark:text-white texttext-sm hover:bg-gray-50 dark:hover:bg-[#333333] rounded-lg cursor-pointer">
+          <li className="flex items-center gap-1 px-3 py-1 text-[#1C1C1C] dark:text-white text-sm hover:bg-gray-50 dark:hover:bg-[#333333] rounded-lg cursor-pointer">
             <ChevronRight className="w-4 h-4 text-[#1C1C1C]/20 dark:text-[#ffffff]/40" />
             <ShoppingBagOpen />
             <span>eCommerce</span>
