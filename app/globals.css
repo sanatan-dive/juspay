@@ -1,26 +1,144 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family: var(--font-flink), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Smooth transitions for better performance */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Enhanced button interactions */
+button {
+  transition-property: all;
+  transition-duration: 200ms;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button:focus-visible {
+  outline: 2px solid #8a8cd9;
+  outline-offset: 2px;
+}
+
+/* Table row hover effects */
+tbody tr {
+  transition: all 200ms ease-in-out;
+}
+
+tbody tr:hover {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+.dark tbody tr:hover {
+  box-shadow: 0 1px 3px 0 rgb(255 255 255 / 0.05);
+}
+
+/* Input focus effects */
+input:focus,
+select:focus {
+  box-shadow: 0 0 0 3px rgba(138, 140, 217, 0.1);
+}
+
+/* Checkbox styles */
+input[type="checkbox"] {
+  border-color: #d1d5db;
+  color: #1c1c1c;
+  transition: all 150ms ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #1c1c1c;
+  border-color: #1c1c1c;
+}
+
+input[type="checkbox"]:hover {
+  border-color: #9ca3af;
+}
+
+/* Dark mode checkbox styles */
+.dark input[type="checkbox"] {
+  border-color: #ffffff;
+  background-color: transparent;
+}
+
+.dark input[type="checkbox"]:checked {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #1c1c1c;
+}
+
+.dark input[type="checkbox"]:focus {
+  ring-color: #ffffff;
+}
+
+.dark input[type="checkbox"]:hover {
+  border-color: #e5e7eb;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 250ms ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 4px 6px -1px rgb(255 255 255 / 0.1),
+    0 2px 4px -2px rgb(255 255 255 / 0.05);
+}
+
+/* Smooth dropdown animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.dropdown-animate {
+  animation: slideDown 200ms ease-out;
+}
+
+/* Loading pulse animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Toast slide-in animation */
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-slide-in {
+  animation: toastSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
