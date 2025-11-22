@@ -39,7 +39,9 @@ export default function RevenueByLocation() {
           height={320}
         >
           <Geographies geography={geoUrl}>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {({ geographies }: any) =>
+              /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
               geographies.map((geo: any) => (
                 <Geography
                   key={geo.rsmKey}

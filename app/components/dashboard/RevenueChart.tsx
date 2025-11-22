@@ -12,12 +12,12 @@ import {
 import { useTheme } from "../../context/ThemeContext";
 
 // Custom tooltip component
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomTooltip = ({
   active,
   payload,
 }: {
   active?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload?: any[];
 }) => {
   if (active && payload && payload.length) {
